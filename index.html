@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generador de Contraseña</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Generador de Contraseña</h1>
+    </header>
+    <main>
+      <h2>Genera una Contraseña Segura</h2>
+      <h3>Indica el número de palabras</h3>
+      <h4><i>(Recomendamos un mínimo de 3 palabras)</i></h4>
+      <div class="input-div">
+        <input type="number" id="numWords" min="3" max="10" value="3" />
+        <button id="generatePasswordButton">Generar Contraseña</button>
+      </div>
+      <div class="password-div">
+        <h3>Contraseña Generada:</h3>
+        <p id="password"></p>
+      </div>
+      <p class="warning-text">
+        Como norma de seguridad, solo se generan <br> contraseñas que tienen entre 15
+        y 64 caracteres.
+      </p>
+    </main>
+
+    <script src="password.js"></script>
+
+    <script>
+      document
+        .getElementById("generatePasswordButton")
+        .addEventListener("click", () => {
+          const numWords = parseInt(document.getElementById("numWords").value);
+          const password = generatePassword(numWords);
+          document.getElementById("password").textContent = password;
+        });
+    </script>
+  </body>
+</html>
